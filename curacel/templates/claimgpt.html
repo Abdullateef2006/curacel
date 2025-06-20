@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ClaimGPT - AI Insurance Claim</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-xl">
+        <h2 class="text-2xl font-bold mb-6 text-blue-700">🚗 Submit Your Insurance Claim (AI Powered)</h2>
+
+        <form method="POST" class="space-y-5">
+            {% csrf_token %}
+
+            <div>
+                <label for="claim_description" class="block text-gray-700 font-medium mb-2">Claim Description</label>
+                <textarea name="claim_description" rows="6" placeholder="Describe your claim, e.g. My policy number is CUR/... I had an accident on June 10, 2025. Claiming ₦100,000. Bank: First Bank, Account: 3029102849, Sort Code: 901290."
+                    class="w-full p-4 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            </div>
+
+            <div>
+                <label for="attachment_url" class="block text-gray-700 font-medium mb-2">File Attachment URL</label>
+                <input type="url" name="attachment_url" placeholder="Paste file URL here (e.g. https://.../file.jpg)"
+                    class="w-full p-3 border border-gray-300 rounded-xl shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500" />
+            </div>
+
+            <button type="submit"
+                class="w-full bg-blue-600 text-white font-semibold py-3 px-6 rounded-xl hover:bg-blue-700 transition duration-300">
+                📤 Submit Claim
+            </button>
+        </form>
+    </div>
+</body>
+</html>

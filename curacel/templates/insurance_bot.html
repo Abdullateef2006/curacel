@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insurance Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .typing {
+            border-right: 2px solid;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center px-4">
+    <div class="bg-white w-full max-w-2xl p-6 rounded-2xl shadow-lg">
+        <h2 class="text-2xl font-bold mb-4 text-blue-700">💬 Insurance Chatbot</h2>
+
+        <form method="POST" class="mb-6">
+            {% csrf_token %}
+            <textarea name="message" rows="3" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Ask anything about insurance...">{{ user_input }}</textarea>
+            <button type="submit" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition">Ask</button>
+        </form>
+
+        {% if response %}
+        <div class="bg-gray-100 p-4 rounded-xl shadow-inner">
+            <h3 class="font-semibold text-gray-700 mb-2">GPT's Response:</h3>
+            <p id="typed-text" class="text-gray-900 whitespace-pre-line"></p>
+            <script>
+                const fullText = `{{ response|escapejs }}`;
+                const typedText = document.getElementById('typed-text');
+                let index = 0;
+
+                function typeChar() {
+                    if (index < fullText.length) {
+                        typedText.textContent += fullText.charAt(index);
+                        index++;
+                        setTimeout(typeChar, 20);
+                    }
+                }
+
+                typeChar();
+            </script>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

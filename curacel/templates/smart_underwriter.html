@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SmartUnderwriter – AI Risk & Policy Engine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 py-8 px-4">
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-2xl shadow-lg">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Smart Underwriter</h2>
+        <p class="mb-6 text-gray-600">Fill the form to assess underwriting risk, get a premium quote, and optionally place an order.</p>
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+                <!-- Required Personal Info -->
+                <input name="ref" placeholder="Customer Ref (required)" class="p-3 border rounded" required>
+                <input name="first_name" placeholder="First Name (required)" class="p-3 border rounded" required>
+                <input name="last_name" placeholder="Last Name (required)" class="p-3 border rounded" required>
+                <input name="birth_date" type="date" placeholder="Birth Date (required)" class="p-3 border rounded" required>
+                <input name="email" type="email" placeholder="Email (required)" class="p-3 border rounded" required>
+                <input name="phone" placeholder="Phone (required)" class="p-3 border rounded" required>
+                <input name="occupation" placeholder="Occupation (required)" class="p-3 border rounded" required>
+                <select name="sex" class="p-3 border rounded" required>
+                    <option value="">Sex (required)</option>
+                    <option value="M">Male</option>
+                    <option value="F">Female</option>
+                </select>
+
+                <!-- Required ID Info -->
+                <select name="id_type" class="p-3 border rounded" required>
+                    <option value="">Select ID Type (required)</option>
+                    <option value="driversLicense">Driver's License</option>
+                    <option value="internationalPassport">International Passport</option>
+                    <option value="votersCard">Voter's Card</option>
+                    <option value="nimc">NIMC</option>
+                </select>
+                <input name="id_number" placeholder="ID Number (required)" class="p-3 border rounded" required>
+                <input name="id_expiry" type="date" class="p-3 border rounded" required>
+                <label class="block text-gray-700">Upload ID Card (required)</label>
+                <input name="id_card" type="file" class="p-2 border rounded" required>
+
+                <!-- Required Address Info -->
+                <input name="residential_address" placeholder="Residential Address (required)" class="p-3 border rounded" required>
+                <input name="city" placeholder="City (required)" class="p-3 border rounded" required>
+                <input name="state" placeholder="State (required)" class="p-3 border rounded" required>
+                <input name="country" placeholder="Country (required)" class="p-3 border rounded" required>
+                <input name="nationality" placeholder="Nationality (required)" class="p-3 border rounded" required>
+
+                <!-- Required Next of Kin -->
+                <input name="next_of_kin_name" placeholder="Next of Kin Name (required)" class="p-3 border rounded" required>
+                <input name="next_of_kin_phone" placeholder="Next of Kin Phone (required)" class="p-3 border rounded" required>
+
+                <!-- Optional Proof of Address -->
+                <input name="proof_type" placeholder="Proof of Address Type (optional)" class="p-3 border rounded">
+                <input name="proof_url" placeholder="Proof of Address File URL (optional)" class="p-3 border rounded">
+
+                <!-- Product & Quote Info -->
+                <input name="product_code" placeholder="Product Code (required)" class="p-3 border rounded" required>
+                <input name="asset_value" type="number" step="0.01" placeholder="Asset Value (required)" class="p-3 border rounded" required>
+                <input name="policy_start_date" type="date" placeholder="Policy Start Date (required)" class="p-3 border rounded" required>
+
+                <!-- Optional Order Extras -->
+                <input name="broker_premium_rate" type="number" step="0.01" placeholder="Broker Premium Rate (optional)" class="p-3 border rounded">
+                <input name="broker_taxes" type="number" step="0.01" placeholder="Broker Taxes % (optional)" class="p-3 border rounded">
+                <input name="child_partner_id" placeholder="Child Partner ID (optional)" class="p-3 border rounded">
+                <input name="attachments" placeholder="Attachment IDs (comma-separated, optional)" class="p-3 border rounded">
+
+                <!-- Submit Option -->
+                <label class="text-gray-700 mt-2">
+                    <input type="checkbox" name="submit_order" class="mr-2">
+                    Also submit an order after quote (optional)
+                </label>
+
+            </div>
+
+            <button type="submit" class="mt-6 w-full bg-blue-600 text-white py-3 rounded-xl hover:bg-blue-700 transition">
+                Submit for Underwriting & Quote
+            </button>
+        </form>
+    </div>
+</body>
+</html>
