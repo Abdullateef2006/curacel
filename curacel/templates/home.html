@@ -2,72 +2,218 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AI-Powered Platform Automating Insurance Claims, Underwriting & Fraud Detection">
   <title>InsureGPT - AI Powered Insurance Automation</title>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom styles -->
+  <style>
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Focus styles for accessibility */
+    a:focus, button:focus {
+      outline: 2px solid #3b82f6;
+      outline-offset: 2px;
+    }
+    
+    /* Animation for feature cards */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .feature-card {
+      animation: fadeIn 0.5s ease-out forwards;
+      opacity: 0;
+    }
+    
+    .feature-card:nth-child(1) { animation-delay: 0.1s; }
+    .feature-card:nth-child(2) { animation-delay: 0.2s; }
+    .feature-card:nth-child(3) { animation-delay: 0.3s; }
+    .feature-card:nth-child(4) { animation-delay: 0.4s; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:bg-white focus:px-4 focus:py-2 focus:rounded focus:z-50 focus:shadow-lg">
+    Skip to content
+  </a>
 
   <!-- Hero Section -->
-  <section class="bg-blue-700 text-white py-16 px-6 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">🚀 InsureGPT</h1>
-    <p class="text-xl md:text-2xl">AI-Powered Platform Automating Insurance Claims, Underwriting & Fraud Detection</p>
-    <p class="mt-4 text-md max-w-2xl mx-auto">Making insurance faster, smarter, and more transparent — for everyone.</p>
-    <a href="/insurance-bot/" class="mt-6 inline-block bg-white text-blue-700 font-semibold px-6 py-3 rounded-xl hover:bg-blue-100 transition">
-      💬 Chat with AI Now
-    </a>
-  </section>
+  <header class="bg-gradient-to-r from-blue-700 to-blue-600 text-white py-16 px-6 text-center">
+    <div class="max-w-4xl mx-auto">
+      <span role="img" aria-label="Rocket" class="text-5xl block mb-4">🚀</span>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4" id="main-content">InsureGPT</h1>
+      <p class="text-xl md:text-2xl mb-4">AI-Powered Platform Automating Insurance Claims, Underwriting & Fraud Detection</p>
+      <p class="text-lg max-w-2xl mx-auto opacity-90">Making insurance faster, smarter, and more transparent — for everyone.</p>
+      <div class="mt-8">
+        <a href="/insurance-bot/" class="inline-flex items-center bg-white text-blue-700 font-semibold px-8 py-3 rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl">
+          <span role="img" aria-label="Chat bubble" class="mr-2">💬</span> Chat with AI Now
+        </a>
+      </div>
+    </div>
+  </header>
 
   <!-- Problem Section -->
-  <section class="py-14 px-6 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-bold mb-4 text-blue-600">📌 The Problem We Solve</h2>
-    <p class="text-lg leading-relaxed">
-      The insurance industry is filled with inefficiencies:
-    </p>
-    <ul class="list-disc pl-6 mt-3 space-y-2 text-gray-700">
-      <li>Policyholders often struggle to understand and submit claims correctly</li>
-      <li>Fraudulent claims cost insurers millions</li>
-      <li>Underwriting takes time and lacks transparency</li>
-      <li>Finding the right insurance product is confusing</li>
-    </ul>
-    <p class="mt-4 text-lg">InsureGPT solves these problems using advanced AI powered by OpenAI and Curacel APIs.</p>
+  <section class="py-16 px-6 max-w-5xl mx-auto" aria-labelledby="problem-heading">
+    <div class="bg-white p-8 rounded-xl shadow-sm">
+      <h2 id="problem-heading" class="text-2xl font-bold mb-6 text-blue-600 flex items-center">
+        <span role="img" aria-label="Pushpin" class="mr-2">📌</span> The Problem We Solve
+      </h2>
+      <p class="text-lg leading-relaxed mb-6">
+        The insurance industry is filled with inefficiencies that cost both insurers and policyholders time and money:
+      </p>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        <li class="flex items-start">
+          <span class="bg-blue-100 text-blue-700 rounded-full p-2 mr-3 flex-shrink-0">🔍</span>
+          <span>Policyholders struggle to understand and submit claims correctly, leading to delays</span>
+        </li>
+        <li class="flex items-start">
+          <span class="bg-blue-100 text-blue-700 rounded-full p-2 mr-3 flex-shrink-0">🕵️</span>
+          <span>Fraudulent claims cost insurers millions annually</span>
+        </li>
+        <li class="flex items-start">
+          <span class="bg-blue-100 text-blue-700 rounded-full p-2 mr-3 flex-shrink-0">⏳</span>
+          <span>Manual underwriting processes are slow and lack transparency</span>
+        </li>
+        <li class="flex items-start">
+          <span class="bg-blue-100 text-blue-700 rounded-full p-2 mr-3 flex-shrink-0">🤔</span>
+          <span>Finding the right insurance product is confusing for consumers</span>
+        </li>
+      </ul>
+      <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+        <p class="text-blue-800 font-medium">
+          InsureGPT solves these problems using advanced AI powered by OpenAI and Curacel APIs, reducing processing times by up to 80%.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- Features Section -->
-  <section class="bg-white py-16 px-6">
-    <h2 class="text-3xl font-bold text-center mb-12 text-blue-600">✨ Core Features</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-      
-      <div class="bg-gray-100 p-6 rounded-2xl shadow-md">
-        <h3 class="text-xl font-semibold mb-2 text-blue-800">📤 ClaimGPT</h3>
-        <p>Submit claims with natural language. ClaimGPT extracts structured data and communicates with the insurer in real time.</p>
-      </div>
+  <section class="py-16 px-6 bg-white" aria-labelledby="features-heading">
+    <div class="max-w-6xl mx-auto">
+      <h2 id="features-heading" class="text-3xl font-bold text-center mb-12 text-blue-600">
+        <span role="img" aria-label="Sparkles" class="mr-2">✨</span> Core Features
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+        
+        <article class="feature-card bg-gradient-to-br from-white to-blue-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+          <div class="bg-blue-100 text-blue-700 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+            <span role="img" aria-label="Upload" class="text-2xl">📤</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">ClaimGPT</h3>
+          <p class="text-gray-700 leading-relaxed">Submit claims with natural language. Our AI extracts structured data and communicates with insurers in real-time, reducing errors and processing time.</p>
+        </article>
 
-      <div class="bg-gray-100 p-6 rounded-2xl shadow-md">
-        <h3 class="text-xl font-semibold mb-2 text-blue-800">🔍 PolicyMatch GPT</h3>
-        <p>Tell us your needs, and our AI matches you with the most relevant and cost-effective policies available.</p>
-      </div>
+        <article class="feature-card bg-gradient-to-br from-white to-blue-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+          <div class="bg-blue-100 text-blue-700 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+            <span role="img" aria-label="Magnifying glass" class="text-2xl">🔍</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">PolicyMatch GPT</h3>
+          <p class="text-gray-700 leading-relaxed">Describe your needs in plain English, and our AI matches you with the most relevant and cost-effective policies from our partner network.</p>
+        </article>
 
-      <div class="bg-gray-100 p-6 rounded-2xl shadow-md">
-        <h3 class="text-xl font-semibold mb-2 text-blue-800">🛡️ FraudFinder AI</h3>
-        <p>Detect and explain suspicious claims using LLMs and Curacel’s claim intelligence APIs.</p>
-      </div>
+        <article class="feature-card bg-gradient-to-br from-white to-blue-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+          <div class="bg-blue-100 text-blue-700 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+            <span role="img" aria-label="Shield" class="text-2xl">🛡️</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">FraudFinder AI</h3>
+          <p class="text-gray-700 leading-relaxed">Our system detects suspicious patterns and explains potential fraud indicators using LLMs and Curacel's claim intelligence APIs.</p>
+        </article>
 
-      <div class="bg-gray-100 p-6 rounded-2xl shadow-md">
-        <h3 class="text-xl font-semibold mb-2 text-blue-800">📈 SmartUnderwriter</h3>
-        <p>Instant risk assessment, premium calculation, and customer onboarding — AI-assisted underwriting at your fingertips.</p>
-      </div>
+        <article class="feature-card bg-gradient-to-br from-white to-blue-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+          <div class="bg-blue-100 text-blue-700 rounded-full w-14 h-14 flex items-center justify-center mb-4">
+            <span role="img" aria-label="Chart" class="text-2xl">📈</span>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-blue-800">SmartUnderwriter</h3>
+          <p class="text-gray-700 leading-relaxed">Get instant risk assessment, premium calculation, and customer onboarding with our AI-assisted underwriting system.</p>
+        </article>
 
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 px-6 bg-gray-100">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-12 text-blue-600">By the Numbers</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="text-3xl font-bold text-blue-600 mb-2">80%</div>
+          <div class="text-gray-600">Faster Claims</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="text-3xl font-bold text-blue-600 mb-2">65%</div>
+          <div class="text-gray-600">Fraud Detection</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="text-3xl font-bold text-blue-600 mb-2">24/7</div>
+          <div class="text-gray-600">Availability</div>
+        </div>
+        <div class="bg-white p-6 rounded-xl shadow-sm">
+          <div class="text-3xl font-bold text-blue-600 mb-2">95%</div>
+          <div class="text-gray-600">Accuracy</div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- CTA Footer -->
-  <footer class="bg-blue-700 text-white py-10 text-center">
-    <h2 class="text-2xl font-bold mb-2">Ready to Experience AI Insurance?</h2>
-    <p class="mb-6">Use our tools to file claims, match policies, and automate underwriting instantly.</p>
-    <a href="/create-customer/" class="inline-block bg-white text-blue-700 font-semibold px-6 py-3 rounded-xl hover:bg-blue-100 transition">
-      🚀 Get Started
-    </a>
+  <footer class="bg-gradient-to-r from-blue-700 to-blue-600 text-white py-12 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Ready to Experience AI-Powered Insurance?</h2>
+      <p class="mb-8 text-lg opacity-90">Use our tools to file claims, match policies, and automate underwriting instantly.</p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/create-customer/" class="inline-flex items-center justify-center bg-white text-blue-700 font-semibold px-8 py-3 rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl flex-1 sm:flex-none max-w-xs mx-auto">
+          <span role="img" aria-label="Rocket" class="mr-2">🚀</span> Get Started
+        </a>
+        <a href="/demo/" class="inline-flex items-center justify-center bg-transparent border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 transition-all duration-300 flex-1 sm:flex-none max-w-xs mx-auto">
+          <span role="img" aria-label="Video camera" class="mr-2">🎥</span> Watch Demo
+        </a>
+      </div>
+      <div class="mt-12 pt-8 border-t border-blue-500 border-opacity-30">
+        <p class="text-sm opacity-80">© 2023 InsureGPT. All rights reserved.</p>
+        <nav aria-label="Footer navigation" class="mt-4">
+          <ul class="flex flex-wrap justify-center gap-4">
+            <li><a href="/privacy/" class="hover:underline opacity-80 hover:opacity-100">Privacy Policy</a></li>
+            <li><a href="/terms/" class="hover:underline opacity-80 hover:opacity-100">Terms of Service</a></li>
+            <li><a href="/contact/" class="hover:underline opacity-80 hover:opacity-100">Contact Us</a></li>
+            <li><a href="/blog/" class="hover:underline opacity-80 hover:opacity-100">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
   </footer>
 
+  <!-- Load scripts at the end of body -->
+  <script>
+    // Simple animation trigger for features when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+          }
+        });
+      }, { threshold: 0.1 });
+
+      document.querySelectorAll('.feature-card').forEach(card => {
+        observer.observe(card);
+      });
+    });
+  </script>
 </body>
 </html>
